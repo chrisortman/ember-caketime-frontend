@@ -1,0 +1,41 @@
+<div class="ui container">
+  <div class="ui three stackable cards">
+    {{#each model.blocks as |block|}}
+      <div class="card">
+        <div class="content">
+          <div class="header">Nov 28 - Dec 4</div>
+          <div class="meta"><a href="#">0 of 8 hours scheduled</a></div>
+          <div class="description">
+            <ol>
+              <li>Order 1</li>
+              <li>Order 2</li>
+              <li>Order 3</li>
+            </ol>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated">
+            <button class="mini ui button">Change Hours</button>
+          </span>
+          <span class="right floated">
+            $0.00
+          </span>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Order
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  {{outlet}}
+
+  <div class="ui divider"></div>
+
+  <div class="ui right floated segment">
+    <a href="#">Previous Schedule</a>
+  </div>
+  <div class="ui left floated segment">
+    <a class="right floated" href="#">Next Schedule</a>
+  </div>
+</div>
