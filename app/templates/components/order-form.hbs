@@ -1,0 +1,79 @@
+<form class="ui form">
+  <div class="field">
+    <label>Name</label>
+    {{input class="customer-name" value=order.name placeholder="Customer Name"}}
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Amount</label>
+      $0.00
+    </div>
+    <div class="field">
+      <label>Required Deposit</label>
+      <div class="ui labeled input">
+        <div class="ui label">$</div>
+        {{input placeholder="0.00"}}
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Deliver/PIckup</label>
+      <select 
+         class="ui dropdown fulfillment-method" 
+         onchange={{action (mut (get order 'fulfillmentMethod')) value="target.value"}}>
+        {{#each fulfillmentMethods as |fmChoice|}}
+          <option value={{fmChoice}} selected={{eq (get order 'fulfillmentMethod') fmChoice}}>
+            {{fmChoice}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field">
+      <label>Due</label>
+      {{input type="date" placeholder="0.00"}}
+    </div>
+  </div>
+  {{#if showDeliveryAddress}}
+  <div class="field">
+    <label>Delivery Address</label>
+    {{input class="delivery-address" value=order.deliveryAddress}}
+  </div>
+  {{/if}}
+  <div class="field">
+    <label>Notes</label>
+    {{textarea class="order-notes" value=order.notes}}
+  </div>
+  <div class="four fields">
+    <div class="field">
+      {{input placeholder="8in/1 dozen"}}
+    </div>
+    <div class="field">
+      {{input placeholder="Flavor"}}
+    </div>
+    <div class="field">
+      {{input placeholder="Cake"}}
+    </div>
+    <div class="field">
+      <button class="ui button">Remove</button>
+    </div>
+  </div>
+  <div class="three fields">
+
+    <div class="field">
+      <div class="ui labeled input">
+        <div class="ui label">$</div>
+        {{input placeholder="0.00"}}
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui right labeled input">
+        {{input placeholder="3 hrs"}}
+        <div class="ui right label">hrs</div>
+      </div>
+    </div>
+    <div class="field">
+      Image
+    </div>
+  </div>
+</form>
