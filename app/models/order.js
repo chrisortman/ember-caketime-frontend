@@ -6,5 +6,6 @@ export default DS.Model.extend({
   notes: DS.attr('string'),
   fulfillmentMethod: DS.attr('string'),
   deliveryAddress: DS.attr('string'),
-  requiredDeposit: DS.attr('number')
+  requiredDeposit: DS.attr('number'),
+  items : [],
 });

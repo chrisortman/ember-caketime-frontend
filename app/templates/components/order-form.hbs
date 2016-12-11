@@ -44,6 +44,7 @@
     <label>Notes</label>
     {{textarea class="order-notes" value=order.notes}}
   </div>
+  {{#each order.items as |item|}}
   <div class="four fields">
     <div class="field">
       {{input placeholder="8in/1 dozen"}}
@@ -79,4 +80,6 @@
   <div class="field">
     <img class="ui tiny image" src={{previewImageSrc}} />
   </div>
+  {{/each}}
+  <button class="ui button" {{action "addNewOrderItem"}}>Add</button>
 </form>

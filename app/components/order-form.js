@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import OrderItem from 'caketime-frontend/models/order-item';
 
 export default Ember.Component.extend({
   fulfillmentMethods: ['unknown','delivery','pickup'],
@@ -10,6 +11,11 @@ export default Ember.Component.extend({
   actions: {
     changeImage(url) {
       this.set('previewImageSrc', URL.createObjectURL(url) );
+    },
+
+    addNewOrderItem() {
+      const item = OrderItem.create();
+      this.get('order').items.pushObject(item);
     }
   }
 });
