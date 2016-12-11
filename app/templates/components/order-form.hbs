@@ -73,7 +73,10 @@
       </div>
     </div>
     <div class="field">
-      Image
+      {{file-upload url="/upload" onpreview=(action 'changeImage')}}
     </div>
+  </div>
+  <div class="field">
+    <img class="ui tiny image" src={{previewImageSrc}} />
   </div>
 </form>
