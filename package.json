@@ -40,7 +40,8 @@
     "ember-uploader": "1.2.2",
     "ember-welcome-page": "^1.0.3",
     "loader.js": "^4.0.10",
-    "semantic-ui-ember": "2.0.0"
+    "semantic-ui-ember": "2.0.0",
+    "torii": "0.8.1"
   },
   "engines": {
     "node": ">= 0.12.0"

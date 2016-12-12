@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('orders', function() {
     this.route('new');
   });
+  this.route('facebook');
 });
 
 export default Router;

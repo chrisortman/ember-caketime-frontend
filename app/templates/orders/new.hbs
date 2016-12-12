@@ -1,4 +1,8 @@
 <div class="ui container">
-  {{order-form order=model}}
+  {{order-form 
+  order=model 
+  hasFacebook=hasFacebook 
+  facebookSignIn=(route-action "facebookSignIn")
+  session=session}}
   {{outlet}}
 </div>

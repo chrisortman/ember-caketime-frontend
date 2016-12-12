@@ -18,9 +18,15 @@
         <i class="search link icon"></i>
       </div>
     </div>
+    {{#if tori.isAuthenticated}}
+    <a class="ui item">
+      {{torii.user.name}}
+    </a>
+    {{else}}
     <a class="ui item">
       Logout
     </a>
+    {{/if}}
   </div>
 </div>
 </div>

@@ -1,7 +1,27 @@
 <form class="ui form">
   <div class="field">
-    <label>Name</label>
-    {{input class="customer-name" value=order.name placeholder="Customer Name"}}
+    <label>Customer Name {{if session.isWorking "Signing In..."}}
+    </label>
+    {{#ui-dropdown 
+      class="customer-name search selection" 
+      allowAdditions=true 
+      selected=order.name
+      onChange=(action "customerSelected") as |execute mapper|}}
+
+      <div class="default text">Customer Name</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        {{#unless hasFacebook}}
+        <div class="item" data-value="facebook-connect">Connect to facebook</div>
+        {{/unless}}
+        {{#each customerChoices as |customerChoice|}}
+          <div class="item" data-value="{{map-value mapper customerChoice}}">
+            {{customerChoice}}
+          </div>
+        {{/each}}
+      </div>
+    {{/ui-dropdown}}
+
   </div>
   <div class="two fields">
     <div class="field">
