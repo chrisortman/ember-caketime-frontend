@@ -6,7 +6,7 @@ export default Ember.Route.extend({
     facebookSignIn() {
       var controller = this.controller;
       // The provider name is passed to `open`
-      return this.get('torii').open('facebook-connect').then(
+      return this.get('session').open('facebook-connect').then(
       
       function(authorization){
         // FB.api is now available. authorization contains the UID and
