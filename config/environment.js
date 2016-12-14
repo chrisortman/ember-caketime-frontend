@@ -38,6 +38,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+     ENV.APP.LOCAL_DATABASE_NAME = "local_pouch"
   }
 
   if (environment === 'test') {
@@ -49,9 +50,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.LOCAL_DATABASE_NAME = "db_test";
   }
 
   if (environment === 'production') {
+     ENV.APP.LOCAL_DATABASE_NAME = "local_pouch"
 
   }
 
