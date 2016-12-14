@@ -30,7 +30,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{order-form order=order}}`);
 
-  assert.equal(this.$('input.customer-name').val().trim(), 'Billy Bob');
+  assert.equal(this.$('div.customer-name .text').text().trim(), 'Billy Bob');
   assert.equal(this.$('textarea.order-notes').val().trim(), 'Wiggly woggly');
   assert.equal(this.$('select.fulfillment-method').val().trim(), 'delivery');
   assert.equal(this.$('input.delivery-address').val().trim(), 'My house');

@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import Model from 'ember-pouch/model';
 
-export default DS.Model.extend({
+export default Model.extend({
   name: DS.attr('string'),
   due: DS.attr('date'),
   notes: DS.attr('string'),

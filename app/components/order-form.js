@@ -23,11 +23,11 @@ export default Ember.Component.extend({
     customerSelected(arg) {
       if ( arg === "facebook-connect" ) {
         return this.attrs.facebookSignIn().then(() => {
-          console.log("After Action", FB.api);
-          FB.api('/me', {fields: 'last_name, birthday, friends'} ,(response) => {
-            console.log(response);
-            this.set('customerChoices',['Lincoln','Preston','Haleigh']);
-          });
+          // console.log("After Action", FB.api);
+          // FB.api('/me', {fields: 'last_name, birthday, friends'} ,(response) => {
+          //   console.log(response);
+          //   this.set('customerChoices',['Lincoln','Preston','Haleigh']);
+          // });
 
         });
       } 

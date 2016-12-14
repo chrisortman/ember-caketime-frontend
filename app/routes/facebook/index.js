@@ -2,22 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
+  graphApi: Ember.inject.service(),
+
   model() {
     console.log("FB Index Route model hook");
     if ( this.get('session.isAuthenticated') ) {
       console.log("Call FB /me API");
 
-      return new Ember.RSVP.Promise(function(resolve,reject) {
-
-        FB.api('/me',{}, function(fbResponse) {
-          console.log( fbResponse );
-          if ( !fbResponse || fbResponse.error ) {
-            reject(fbResponse);
-          } else {
-            resolve(fbResponse);
-          }
-        });
-      });
+      return this.graphApi.myProfile();
 
     }
   },

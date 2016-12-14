@@ -12,7 +12,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{file-upload}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Pick a file not your nose');
 
   // Template block usage:
   this.render(hbs`
@@ -21,5 +21,5 @@ test('it renders', function(assert) {
     {{/file-upload}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'Pick a file not your nose');
 });

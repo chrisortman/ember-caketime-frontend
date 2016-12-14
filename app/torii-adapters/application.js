@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   open: function(authentication){
     var userId = authentication.userId;
-    return new Ember.RSVP.Promise(function(resolve, reject){
+    return new Ember.RSVP.Promise(function(resolve){
       console.log("APplication adapter", authentication);
       resolve({facebookUserId: userId, facebookAccessToken: authentication.accessToken});
       // Ember.$.ajax({
@@ -25,7 +25,7 @@ export default Ember.Object.extend({
 
   fetch: function() {
     console.log("Application Adapter Fetch", arguments);
-    return new Ember.RSVP.Promise(function(resolve, reject) {
+    return new Ember.RSVP.Promise(function(resolve) {
       resolve( true );
     });
   },

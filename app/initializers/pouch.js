@@ -1,9 +1,9 @@
-import ENV from 'cms/config/environment';
+import ENV from 'caketime-frontend/config/environment';
 import PouchDB from 'pouchdb';
 
 // PouchDB.debug.enable('*');
 
-var db, remote;
+var db;
 
 export function initialize( application ) {
 
