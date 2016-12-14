@@ -1,8 +1,8 @@
 {{error}}
-{{log "SessionPOOP" (get session 'currentUser')}}
 
 {{#if session.isAuthenticated}}
   You are currently signed in
+  {{log "THE SESSION" session }}
   {{outlet}}
 {{else}}
   You are not signed in

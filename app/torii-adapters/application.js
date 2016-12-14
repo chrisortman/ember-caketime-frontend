@@ -4,8 +4,8 @@ export default Ember.Object.extend({
   open: function(authentication){
     var userId = authentication.userId;
     return new Ember.RSVP.Promise(function(resolve, reject){
-      console.log("APplication adapter");
-      resolve({userId: userId});
+      console.log("APplication adapter", authentication);
+      resolve({facebookUserId: userId, facebookAccessToken: authentication.accessToken});
       // Ember.$.ajax({
       //   url: 'api/session',
       //   data: { 'facebook-auth-code': authorizationCode },
@@ -14,7 +14,6 @@ export default Ember.Object.extend({
       //   error: Ember.run.bind(null, reject)
       // });
     }).then(function(user){
-      console.log("APplication adapter callback");
       // The returned object is merged onto the session (basically). Here
       // you may also want to persist the new session with cookies or via
       // localStorage.
@@ -22,5 +21,13 @@ export default Ember.Object.extend({
         currentUser: user
       };
     });
-  }
+  },
+
+  fetch: function() {
+    console.log("Application Adapter Fetch", arguments);
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      resolve( true );
+    });
+  },
+
 });

@@ -7,16 +7,16 @@ export default Ember.Route.extend({
       var controller = this.controller;
       // The provider name is passed to `open`
       return this.get('session').open('facebook-connect').then(
-      
-      function(authorization){
-        // FB.api is now available. authorization contains the UID and
-        // accessToken.
-        console.log("Authorization", authorization);
-        controller.set('hasFacebook', true);
 
-      }, function(error) {
-        controller.set('error', error);
-      });
+        function(authorization){
+          // FB.api is now available. authorization contains the UID and
+          // accessToken.
+          console.log("Authorization", authorization);
+          controller.set('hasFacebook', true);
+
+        }, function(error) {
+          controller.set('error', error);
+        });
     }
   }
 });

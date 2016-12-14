@@ -1,2 +1,7 @@
-I'm the index route
+<p>
+Welcome back {{model.first_name}} {{model.last_name}}
+
+<a href="{{model.link}}" target="_blank">View Facebook Profile</a>
+{{log "Index Model" model}}
 {{outlet}}
+</p>
