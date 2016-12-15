@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Object.extend({
+
   open: function(authentication){
+    console.log( this.get('store') );
     var userId = authentication.userId;
     return new Ember.RSVP.Promise(function(resolve){
       console.log("APplication adapter", authentication);
@@ -17,6 +19,8 @@ export default Ember.Object.extend({
       // The returned object is merged onto the session (basically). Here
       // you may also want to persist the new session with cookies or via
       // localStorage.
+
+      
       return {
         currentUser: user
       };
