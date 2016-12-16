@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
 
+  store: Ember.inject.service(),
+
   myProfile() {
 
     return new Ember.RSVP.Promise(function(resolve,reject) {

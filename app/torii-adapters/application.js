@@ -1,37 +1,41 @@
 import Ember from 'ember';
 
+// Converts a user model to the
+// format expected by the Torii
+// session service
+function userToSession(user) {
+  return {
+    currentUser: user
+  };
+}
+
 export default Ember.Object.extend({
 
-  open: function(authentication){
-    console.log( this.get('store') );
-    var userId = authentication.userId;
-    return new Ember.RSVP.Promise(function(resolve){
-      console.log("APplication adapter", authentication);
-      resolve({facebookUserId: userId, facebookAccessToken: authentication.accessToken});
-      // Ember.$.ajax({
-      //   url: 'api/session',
-      //   data: { 'facebook-auth-code': authorizationCode },
-      //   dataType: 'json',
-      //   success: Ember.run.bind(null, resolve),
-      //   error: Ember.run.bind(null, reject)
-      // });
-    }).then(function(user){
-      // The returned object is merged onto the session (basically). Here
-      // you may also want to persist the new session with cookies or via
-      // localStorage.
+  store: Ember.inject.service(),
 
-      
-      return {
-        currentUser: user
-      };
+  open: function(authentication){
+    console.log("APplication adapter", authentication);
+    const store = this.get('store');
+
+    const facebookAuth = {
+      facebookUserId: authentication.userId,
+      facebookAccessToken: authentication.accessToken
+    };
+
+    const userRecord = store.createRecord('user', {
+      id: 'current-user',
+      facebookAuth: facebookAuth,
     });
+
+    return userRecord.save().then( userToSession );
+
   },
 
   fetch: function() {
     console.log("Application Adapter Fetch", arguments);
-    return new Ember.RSVP.Promise(function(resolve) {
-      resolve( true );
-    });
+    const store = this.get('store');
+    return store.findRecord('user', 'current-user').then( userToSession );
+
   },
 
 });

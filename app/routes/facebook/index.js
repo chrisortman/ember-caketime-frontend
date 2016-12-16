@@ -15,7 +15,8 @@ export default Ember.Route.extend({
   },
 
   authenticationChanged: Ember.observer('session.isAuthenticated', function() {
-    this.refresh();
+    console.log("session.isAuthenticated changed");
+    //this.refresh();
   }),
 
 });
