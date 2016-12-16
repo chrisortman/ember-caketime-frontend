@@ -6,15 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
-    torii: {
-      sessionServiceName: 'session',
-      providers: {
-        'facebook-connect': {
-          appId: '151793311687878',
-          scope: 'email, user_birthday, manage_pages, read_page_mailboxes, read_mailbox'
-        }
-      }
-    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -56,6 +48,12 @@ module.exports = function(environment) {
   if (environment === 'production') {
      ENV.APP.LOCAL_DATABASE_NAME = "local_pouch"
 
+  }
+
+  ENV.FB = {
+    appId: '151793311687878',
+    version: 'v2.7',
+    xfbml: true
   }
 
   return ENV;

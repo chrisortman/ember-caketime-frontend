@@ -5,3 +5,13 @@ Welcome back {{model.first_name}} {{model.last_name}}
 {{log "Index Model" model}}
 {{outlet}}
 </p>
+
+<p>
+View Pages
+</p>
+
+<ul>
+  {{#each model.pages as |page|}}
+  <li>{{page}}</li>
+  {{/each}}
+</ul>

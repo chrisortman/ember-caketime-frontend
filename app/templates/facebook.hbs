@@ -1,10 +1,3 @@
 {{error}}
 
-{{#if session.isAuthenticated}}
-  You are currently signed in
-  {{log "THE SESSION" session }}
-  {{outlet}}
-{{else}}
-  You are not signed in
-  <button class="ui button" {{action (route-action "facebookSignIn")}}>Connect</button>
-{{/if}}
+{{outlet}}

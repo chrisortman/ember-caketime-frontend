@@ -1,9 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  fb: Ember.inject.service(),
+
   beforeModel() {
-    return this.get('session').fetch('facebook-connect').catch(function() {
-      //failure is fine, means not authenticated
-    });
+    return this.get('fb')
+               .getLoginStatus()
+               .then( (response) => {
+                  if ( response.status === 'connected' ) {
+                    this.transitionTo('facebook.index');
+                  } else {
+                    this.transitionTo('facebook.not-connected');
+                  }
+               })
+               .catch( () => {
+                  this.transitionTo('facebook.not-connected');
+               });
   }
 });

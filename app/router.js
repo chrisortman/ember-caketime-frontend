@@ -12,7 +12,9 @@ Router.map(function() {
   this.route('orders', function() {
     this.route('new');
   });
-  this.route('facebook', function() {});
+  this.route('facebook', function() {
+    this.route('not-connected');
+  });
 });
 
 export default Router;
